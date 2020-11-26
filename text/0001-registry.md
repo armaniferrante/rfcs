@@ -20,7 +20,7 @@ controls who and when stakers can deposit and redeem tokens.
 This enables features like a mandatory 1 MSRM node deposit before entering
 the pool, the staking of locked SRM, and a 1 week timelock for withdrawals.
 
-In addition to providing a gateway to the staking pool, the Registry acts as a respository
+In addition to providing a gateway to the staking pool, the Registry acts as a repository
 for node state, allowing programs to perform access control on nodes. This is useful
 for programs paying out rewards for node duties or for those providing governance.
 For example, a **crank-rewards** program could use Registry accounts to determine if
