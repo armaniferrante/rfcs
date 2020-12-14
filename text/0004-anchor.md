@@ -112,6 +112,7 @@ There are several inert attributes (attributes that are consumed only for the pu
 
 ## Future work.
 
+* Standalone constraint expressions. Define expressions in the same way you'd define any other type and then reference them from Anchor structs. This would allow sharing constraints between Anchor structs.
 * Constraints on containers. Accounts can be passed in as logical groups, e.g., `Vec<Root>` using the example above, or even as custom structs, e.g., `MyCustomContainer` (where each field itself is an instance of `AnchorAccount`), which might provide a more convient way to reference a group of accounts.
 * Sysvars. Sysvars should be detected and auto deserialized with owner checks.
 * SPL programs. Similarly, SPL programs should be detected and deserialized with owner checks.
