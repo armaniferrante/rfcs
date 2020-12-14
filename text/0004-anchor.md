@@ -70,7 +70,7 @@ fn entry(program_id: &Pubkey, accounts: &[AccountInfo], instruction_data: &[u8])
 }
 ```
 
-Additionally, it will generate code to both 1) deserialize the `accounts` slice into the correct accounts `Anchor`, ensuring all specified constraints are satisified, and 2) deserialize the `instruction_data` and dispatche to the correct handler (e.g., `initialize` in the example above).
+Additionally, it will generate code to both 1) deserialize the `accounts` slice into the correct accounts `Anchor`, ensuring all specified constraints are satisified, and 2) deserialize the `instruction_data` and dispatch to the correct handler (e.g., `initialize` in the example above).
 
 ### Creating an instruction handler.
 
