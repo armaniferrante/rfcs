@@ -16,18 +16,20 @@ For example, one could imagine easily writing a faulty SPL token program that fo
 
 ## Example
 
-### TLDR.
-
-In short, a program looks like this.
+An example program looks like this.
 
 ```rust
-#[anchor]
-mod program {
+// Program instruction handler.
+
+#[program]
+mod example {
     pub fn initialize(accs: &mut Initialize, initial_data: u64) {
 	  accs.root.initialized = true;
 	  accs.root.data = initial_data;
     }
 }
+
+// Accounts anchor definition.
 
 #[derive(Anchor)]
 pub struct Initialize<'info> {
@@ -35,7 +37,8 @@ pub struct Initialize<'info> {
     pub root: AnchorAccount<'info, Root>,
 }
 
-// Root is a program owned account.
+// Program owned account.
+
 #[derive(BorshSerialize, BorshDeserialize)]
 pub struct Root {
     pub initialized: bool,
