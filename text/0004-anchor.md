@@ -22,7 +22,7 @@ In short, a program looks like this.
 
 ```rust
 #[anchor]
-mod my_program {
+mod program {
     pub fn initialize(accs: &mut Initialize, initial_data: u64) {
 	  accs.root.initialized = true;
 	  accs.root.data = initial_data;
@@ -56,12 +56,12 @@ The `#[anchor]` attribute marks a program.
 
 ```rust
 #[anchor]
-mod my_program {
+mod program {
  ...
 }
 ```
 
-Internally what this does, is generates the usual Solana entry code, i.e.,
+Internally, this generates the usual Solana entry code, i.e.,
 
 ```rust
 solana_program::entrypoint!(entry);
@@ -70,23 +70,23 @@ fn entry(program_id: &Pubkey, accounts: &[AccountInfo], instruction_data: &[u8])
 }
 ```
 
-Additionally, it will generate code to both 1) deserialize the `accounts` slice into the correct accounts `Anchor`, ensuring all specified constraints are satisified, and 2) deserializes the `instruction_data` and dispatches to the correct handler (e.g., `initialize` in the example above).
+Additionally, it will generate code to both 1) deserialize the `accounts` slice into the correct accounts `Anchor`, ensuring all specified constraints are satisified, and 2) deserialize the `instruction_data` and dispatche to the correct handler (e.g., `initialize` in the example above).
 
 ### Creating an instruction handler.
 
 Each method inside the program corresponds to an instruction handler.
 
 ```rust
-pub fn initialize(accs: &mut Initialize, authority: Pubkey, initial_data: u64) {
+pub fn initialize(accs: &mut Initialize, initial_data: u64) {
   ...
 }
 ```
 
-Note that the `my_program` handler inputs are broken up into two sections: 1) an accounts struct for the instruction, deriving the `Anchor` and a variable length set of program arguments deserialized from the instruction data.
+Note that the `program` handler inputs are broken up into two sections: 1) an accounts struct for the instruction, deriving the `Anchor` and a variable length set of program arguments deserialized from the instruction data.
 
 ## Marking an Anchor.
 
-Account anchors are deserialized structs for the Solana `accounts` slice. To create one, mark your struct with the `#[derive(Anchor)]` macro.
+Account anchors are deserialized structs from the Solana `accounts` slice. To create one, mark your struct with the `#[derive(Anchor)]` macro.
 
 ```rust
 #[derive(Anchor)]
@@ -112,7 +112,7 @@ There are several inert attributes (attributes that are consumed only for the pu
 
 ## Future work.
 
-* Constraints on containers.
+* Constraints on containers. Accounts can be passed in as groups, e.g., `Vec<Root>` or as structs, e.g., `MyCustomContainer` which might provide a more convenience way to reference a group of accounts.
 * Sysvars. Sysvars should be detected and auto deserialized with owner checks.
 * SPL programs. Similarly, SPL programs should be detected and deserialized with owner checks.
 * Client generation. It's straight forward to use the parsers here to emit an IDL that can be used to generate clients.
