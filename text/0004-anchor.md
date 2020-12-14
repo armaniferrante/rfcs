@@ -55,11 +55,11 @@ The program above does the following
 
 ### Marking a program.
 
-The `#[anchor]` attribute marks a program.
+The `#[program]` attribute marks a program.
 
 ```rust
-#[anchor]
-mod program {
+#[program]
+mod example {
  ...
 }
 ```
