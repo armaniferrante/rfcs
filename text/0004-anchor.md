@@ -112,7 +112,7 @@ There are several inert attributes (attributes that are consumed only for the pu
 
 ## Future work.
 
-* Constraints on containers. Accounts can be passed in as groups, e.g., `Vec<Root>` or as structs, e.g., `MyCustomContainer` which might provide a more convenience way to reference a group of accounts.
+* Constraints on containers. Accounts can be passed in as logical groups, e.g., `Vec<Root>` using the example above, or even as custom structs, e.g., `MyCustomContainer` (where each field itself is an instance of `AnchorAccount`), which might provide a more convient way to reference a group of accounts.
 * Sysvars. Sysvars should be detected and auto deserialized with owner checks.
 * SPL programs. Similarly, SPL programs should be detected and deserialized with owner checks.
 * Client generation. It's straight forward to use the parsers here to emit an IDL that can be used to generate clients.
