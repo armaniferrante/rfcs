@@ -6,7 +6,7 @@
 
 ## Summary
 
-Anchor is a DSL for Solana's [Sealevel](https://medium.com/solana-labs/sealevel-parallel-processing-thousands-of-smart-contracts-d814b378192) runtime. A WIP implementation can be found [here](https://github.com/armaniferrante/serum-dex/tree/armani/anchor/anchor).
+Anchor is a DSL for Solana's [Sealevel](https://medium.com/solana-labs/sealevel-parallel-processing-thousands-of-smart-contracts-d814b378192) runtime. A WIP implementation can be found [here](https://github.com/armaniferrante/serum-dex/tree/armani/anchor/anchor) with a working [example](https://github.com/armaniferrante/serum-dex/blob/armani/anchor/anchor/examples/basic/src/lib.rs).
 
 ## Goal
 
